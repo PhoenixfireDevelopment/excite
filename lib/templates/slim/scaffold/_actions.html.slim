@@ -1,0 +1,9 @@
+.btn-toolbar
+  = link_to main_app.<%= singular_table_name %>_path(<%= singular_table_name %>), title: "View #{<%= class_name %>.model_name.human}", class: 'btn btn-secondary btn-sm mr-3' do
+    = fa_icon "eye", class: 'fa-1x'
+
+  = link_to main_app.edit_<%= singular_table_name %>_path(<%= singular_table_name %>), title: "Edit #{<%= class_name %>.model_name.human}", class: 'btn btn-warning btn-sm mr-3' do
+    = fa_icon "pencil-square-o", class: 'fa-1x'
+
+  = link_to main_app.<%= singular_table_name %>_path(<%= singular_table_name %>), data: {method: :delete, confirm: 'Are you sure?'}, title: "Remove #{<%= class_name %>.model_name.human}", class: 'btn btn-danger btn-sm mr-3' do
+    = fa_icon "remove", class: 'fa-1x'

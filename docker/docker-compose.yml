@@ -1,0 +1,34 @@
+version: '3.3'
+services:
+  excite:
+    image: excite
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+      args:
+        - RAILS_ENV=development
+    env_file:
+      - .secrets.env
+    volumes:
+      - ../:/app/src
+      - ~/.ssh:/root/.ssh
+      - excite_bundle_cache:/bundle
+    depends_on:
+      - excite_db
+    entrypoint: ["/app/src/entrypoint.sh"]
+    command: /bin/sh -c 'bin/rails s -b 0.0.0.0 -p 3000'
+    ports:
+      - "3000:3000"
+
+  excite_db:
+    image: mariadb
+    volumes:
+      - excite_volume:/var/lib/mysql
+    env_file:
+      - .secrets.env
+    ports:
+      - "13372:3306"
+
+volumes:
+  excite_bundle_cache:
+  excite_volume:

@@ -1,0 +1,70 @@
+- title "#{User.model_name.human} : #{@user.to_s}", true, {fa_icon: 'users'}
+
+- content_for(:toolbar) do
+  .btn-toolbar[role='toolbar']
+    .btn-group.btn-group-sm.mr-2[role='group' aria-label='First group']
+      = link_to main_app.users_path, class: 'btn btn-outline-primary btn-sm', title: "All #{User.model_name.human.pluralize}" do
+        = fa_icon 'arrow-left', class: 'fa-1x mr-2'
+        | All #{User.model_name.human.pluralize}
+
+    .btn-group.btn-group-sm.mr-2[role='group']
+      = link_to main_app.edit_user_path(@user), class: 'btn btn-warning btn-sm', title: "Edit #{User.model_name.human}" do
+        = fa_icon 'pencil-square-o', class: 'fa-1x mr-2'
+        | Edit #{User.model_name.human}
+
+    .btn-group.btn-group-sm[role='group']
+      = mail_to @user.email, class: 'btn btn-info btn-sm', title: "Email #{User.model_name.human}" do
+        = fa_icon 'envelope', class: 'fa-1x mr-2'
+        | Email #{User.model_name.human}
+
+.row
+  .col-md-6
+    .card
+      .card-header
+        = fa_icon 'file-o', class: 'fa-1x mr-2'
+        | General Information
+      .card-body
+        .table-responsive
+          table.table.table-striped.table-hover
+            tbody
+              tr
+                th= User.human_attribute_name(:first_name)
+                td= @user.first_name
+              tr
+                th= User.human_attribute_name(:last_name)
+                td= @user.last_name
+              tr
+                th= User.human_attribute_name(:email)
+                td
+                  code= @user.email
+              tr
+                th= User.human_attribute_name(:created_at)
+                td= pl(@user.created_at, format: :long)
+              tr
+                th= User.human_attribute_name(:updated_at)
+                td= pl(@user.updated_at, format: :long)
+
+  .col-md-6
+    .card
+      .card-header
+        = fa_icon 'lock', class: 'fa-1x mr-2'
+        | Session Information
+      .card-body
+        .table-responsive
+          table.table.table-striped.table-hover
+            tbody
+              tr
+                th= User.human_attribute_name(:sign_in_count)
+                td= @user.sign_in_count
+              tr
+                th= User.human_attribute_name(:current_sign_in_ip)
+                td= @user.current_sign_in_ip
+              tr
+                th= User.human_attribute_name(:last_sign_in_ip)
+                td= @user.last_sign_in_ip
+              tr
+                th= User.human_attribute_name(:current_sign_in_at)
+                td= pl(@user.current_sign_in_at, format: :long)
+              tr
+                th= User.human_attribute_name(:last_sign_in_at)
+                td= pl(@user.last_sign_in_at, format: :long)

@@ -1,0 +1,47 @@
+en:
+  attributes:
+    archived_at: 'Archived At'
+    company: 'Company'
+    created_at: 'Created'
+    updated_at: 'Updated'
+    uuid: 'UUID'
+  date:
+    formats:
+      default: "%m/%d/%Y"
+      long: "%B %d, %Y"
+      short: "%b %d"
+  time:
+    formats:
+      compact: "%m/%d/%Y"
+      datetimepicker: "%Y/%m/%d %l:%M %p"
+      default: '%A %b %e %Y, %l:%M%p'
+      long: "%B %d, %Y %l:%M %p"
+      short: "%m/%d/%y %l:%M%p"
+    am: "am"
+    pm: "pm"
+  activerecord:
+    models:
+      user: 'User'
+    attributes:
+      user:
+        current_password: "Current Password"
+        current_sign_in_at: "Current Sign In At"
+        current_sign_in_ip: "Current Sign In IP"
+        failed_attempts: "Failed Attempts"
+        first_name: 'First Name'
+        full_name: 'Full Name'
+        last_name: 'Last Name'
+        last_sign_in_at: "Last Sign In At"
+        last_sign_in_ip: "Last Sign In IP"
+        password: "Password"
+        password_confirmation: "Password Confirmation"
+        remember_me: "Remember Me"
+        sign_in_count: "Sign In Count"
+  layouts:
+    application:
+      copyright: "Excite %{year}"
+      default_sub_title: ''
+      default_title: 'Excite'
+      navbar:
+        main_app: 'Excite'
+      title: "Excite : %{title}"

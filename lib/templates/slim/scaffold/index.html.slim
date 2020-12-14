@@ -1,0 +1,22 @@
+- title "#{<%= class_name %>.model_name.human.pluralize}", true, {fa_icon: 'question'}
+
+- content_for(:toolbar) do
+  .toolbar
+    = link_to main_app.new_<%= singular_table_name %>_path, class: 'btn btn-primary btn-sm', title: "New #{<%= class_name %>.model_name.human}" do
+      = fa_icon "plus", class: 'mr-2'
+      | New #{<%= class_name %>.model_name.human}
+
+.table-products.section
+  table.table.table-striped.table-hover#<%= plural_table_name %>_index_table*{data: {source: <%= plural_table_name %>_url(format: :json), display_length: <%= class_name %>.default_per_page}}
+    thead
+      tr
+<% for attribute in attributes -%>
+        th.<%= attribute.name %>
+          = <%= class_name %>.human_attribute_name(:<%= attribute.name %>)
+<% end -%>
+        th.created_at = <%= class_name %>.human_attribute_name(:created_at)
+        th.updated_at = <%= class_name %>.human_attribute_name(:updated_at)
+        th.actions.actions.nosort
+          span.line
+          Actions
+    tbody

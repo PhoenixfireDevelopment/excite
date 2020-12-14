@@ -1,0 +1,14 @@
+- title 'Forgot Password', false, {fa_icon: 'key'}
+
+== render 'shared/flash_messages'
+
+= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+  .card
+    .card-header
+      = fa_icon 'key'
+      | Forgot Password
+    .card-body
+      = f.input :email, required: true, autofocus: true
+      = f.button :submit, 'Send me reset password instructions', class: 'btn btn-primary btn-sm'
+  .card-footer
+    == render 'devise/shared/links'

@@ -1,0 +1,34 @@
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.mb-3
+  a.navbar-brand[href=root_url]
+    = fa_icon "smile-o", class: "fa-1x mr-2"
+    | Excite
+  button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"]
+    span.navbar-toggler-icon
+  #navbarNav.collapse.navbar-collapse
+    ul.navbar-nav
+      - if user_signed_in?
+        = active_link_to root_path, class: 'nav-link', active: ["marketing/landing"], wrap_tag: :li do
+          = fa_icon "tachometer", class: "fa-1x mr-2"
+          | Dashboard
+
+        = active_link_to users_path, class: 'nav-link', active: ["users"], wrap_tag: :li do
+          = fa_icon "users", class: "fa-1x mr-2"
+          | Users
+
+        li.nav-item.dropdown
+          a#navbarDropdownMenuLink.nav-link.dropdown-toggle[href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
+            = fa_icon "cog", class: 'fa-1x mr-2'
+            = current_user.to_s
+          .dropdown-menu[aria-labelledby="navbarDropdownMenuLink"]
+            = link_to edit_user_registration_path, class: 'dropdown-item' do
+              = fa_icon "pencil-square-o", class: 'fa-1x mr-2'
+              | Edit Profile
+            .dropdown-divider
+            = link_to destroy_user_session_path, method: :delete, class: 'dropdown-item' do
+              = fa_icon "power-off", class: 'fa-1x mr-2'
+              | Logout
+      - else
+        li.active
+          = link_to new_user_session_path, class: 'nav-link' do
+            = fa_icon "power-off", class: 'fa-1x mr-2'
+            | Login

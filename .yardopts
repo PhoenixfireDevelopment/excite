@@ -1,0 +1,6 @@
+--exclude app/mailers/application_mailer.rb
+--exclude app/jobs/application_job.rb
+--exclude db/migrate
+--exclude spec/factories
+--exclude lib/generators
+--exclude lib/templates

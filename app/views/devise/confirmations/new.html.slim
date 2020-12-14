@@ -1,0 +1,15 @@
+- title 'Resend Confirmation Instructions', false, {fa_icon: 'key'}
+
+== render 'shared/flash_messages'
+
+= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
+  = f.full_error :confirmation_token
+  .card
+    .card-header
+      = fa_icon 'key'
+      | Resend Confirmation Instructions
+    .card-body
+      = f.input :email, required: true, autofocus: true
+      = f.button :submit, 'Resend confirmation instructions', class: 'btn btn-primary btn-sm'
+  .form-actions
+    == render 'devise/shared/links'

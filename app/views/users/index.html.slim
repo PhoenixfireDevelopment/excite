@@ -1,0 +1,19 @@
+- title "#{User.model_name.human.pluralize}", true, {fa_icon: 'users'}
+
+- content_for(:toolbar) do
+  = link_to main_app.new_user_path, class: 'btn btn-primary btn-sm', title: "New #{User.model_name.human}" do
+    = fa_icon 'plus', class: 'mr-2'
+    | New #{User.model_name.human}
+
+table.table.table-striped.table-hover.table-condensed.display.nowrap#users_index_table*{data: {source: main_app.users_path(format: :json), display_length: User.default_per_page}}
+  thead
+    tr
+      th.nosort.last_name*{data: { priority: 1 }}
+        = User.human_attribute_name(:last_name)
+      th.first_name= User.human_attribute_name(:first_name)
+      th.email= User.human_attribute_name(:email)
+      th.sign_in_count= User.human_attribute_name(:sign_in_count)
+      th.created_at= User.human_attribute_name(:created_at)
+      th.updated_at= User.human_attribute_name(:updated_at)
+      th.nosort.actions*{data: { priority: 2}}
+  tbody

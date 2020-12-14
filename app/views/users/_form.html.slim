@@ -1,0 +1,17 @@
+= simple_form_for @user do |f|
+  = f.error_notification
+
+  .card
+    .card-header
+      = fa_icon "file-o", class: 'fa-1x mr-2'
+      | General Information
+    .card-body
+      = f.input :first_name, required: true, hint: 'The first name of the User', placeholder: 'Bob'
+      = f.input :last_name, required: true, hint: 'The last name of the User', placeholder: 'Dole'
+      = f.input :email, required: true, hint: 'A unique email address for the User', placeholder: 'bob.dole@example.com'
+      = f.input :password, required: true, hint: 'A secure password', placeholder: 'my_secure_password123'
+      = f.input :password_confirmation, required: true, hint: 'A secure password confirmation', placeholder: 'my_secure_password123'
+
+    .card-footer
+      = f.button :submit, class: 'btn btn-primary btn-sm'
+      = link_to 'Cancel', @user, class: 'btn btn-link btn-sm'

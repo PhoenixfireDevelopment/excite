@@ -1,0 +1,87 @@
+| <!doctype html>
+html[lang="en"]
+  head
+    title= content_for?(:title) ? t('.title', title: yield(:title)) : t('.default_title')
+    meta[charset="utf-8"]
+    meta[name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"]
+    - if current_user
+      meta[name='current_user_id' content=current_user.id]
+      - if content_for?(:meta_tags)
+        = yield(:meta_tags)
+    = csrf_meta_tags
+    = stylesheet_link_tag "application", media: "all"
+    = javascript_include_tag "application"
+    script[type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js']
+    coffee:
+      toastr.options = @App.toastr_hacks
+    - if content_for?(:header_css)
+      = yield(:header_css)
+
+  body#application_layout
+
+    == render 'layouts/navbar'
+
+    - if content_for?(:sidebar)
+      .container-fluid
+        .row
+          nav.col-sm-3.col-md-2.d-sm-block
+            = yield(:sidebar)
+
+          main.col-sm-9.ml-sm-auto.col-md-10.pt-3[role="main"]
+            div.flash-message
+              = toastr_flash
+
+            - if content_for?(:sub_title)
+              nav[aria-label="breadcrumb" role="navigation"]
+                ol.breadcrumb
+                  - if content_for(:fa_icon)
+                    li.breadcrumb-item[aria-current="page"]
+                      = fa_icon yield(:fa_icon), class: 'fa-1x mr-2'
+                  li.breadcrumb-item.active[aria-current="page" title=yield(:sub_title)]
+                    = content_for?(:sub_title) ? yield(:sub_title) : t('.default_sub_title')
+
+            - if content_for?(:toolbar)
+              .toolbar.mb-3
+                = yield(:toolbar)
+            = yield
+
+    - else
+      .container-fluid
+        .row-fluid
+          .col-sm-12
+            div.flash-message
+              = toastr_flash
+
+            - if content_for?(:sub_title)
+              nav[aria-label="breadcrumb" role="navigation"]
+                ol.breadcrumb
+                  - if content_for(:fa_icon)
+                    li.breadcrumb-item[aria-current="page" title=yield(:sub_title)]
+                      = fa_icon yield(:fa_icon), class: 'fa-1x mr-2'
+                  li.breadcrumb-item.active[aria-current="page"]
+                    = content_for?(:sub_title) ? yield(:sub_title) : t('.default_sub_title')
+
+            - if content_for?(:toolbar)
+              .toolbar.mb-3
+                = yield(:toolbar)
+            = yield
+
+    // Footer includes
+    script[type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.16/datatables.min.js"]
+    script[type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.1/js/dataTables.responsive.min.js"]
+
+    // Page specific Footer JS
+    - if content_for?(:footer_js)
+      = yield(:footer_js)
+
+    coffee:
+      $ ->
+        $("div[id$='_index_table_wrapper']").removeClass('container-fluid');
+
+  footer
+    p.text-center.mt-3
+      span
+        = fa_icon "copyright", class: 'fa-1x mr-2'
+        = t(".copyright", year: Date.today.year)
+
+== render 'layouts/global_modal'

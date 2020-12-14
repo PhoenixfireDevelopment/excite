@@ -1,0 +1,21 @@
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
+@import "font-awesome";
+@import "https://cdn.datatables.net/v/bs4/dt-1.10.16/datatables.min.css";
+@import "https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css";
+
+.fa {
+  padding-right: 0.5rem;
+}
+
+.navbar-dark .navbar-nav .show > .nav-link, .navbar-dark .navbar-nav .active > .nav-link, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .nav-link.active {
+  color: #21b512;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: #f2ecec !important;
+}
+
+.table-hover > tbody > tr:hover {
+  background-color: #f9f76d !important;
+}

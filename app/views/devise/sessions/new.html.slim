@@ -1,0 +1,17 @@
+- title 'Login', false
+
+== render 'shared/flash_messages'
+
+.col-md-4.mx-auto
+  = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .card
+      .card-header
+        = fa_icon 'key'
+        | Login
+      .card-body
+        = f.input :email, required: false, autofocus: true
+        = f.input :password, required: false
+        = f.input :remember_me, as: :boolean, input_html: { class: 'mr-3' } if devise_mapping.rememberable?
+        = f.button :submit, 'Login', class: 'btn btn-primary btn-sm'
+      .card-footer
+        == render 'devise/shared/links'

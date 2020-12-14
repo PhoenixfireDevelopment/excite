@@ -1,0 +1,15 @@
+= simple_form_for(@<%= singular_table_name %>) do |f|
+  = f.error_notification
+
+  .card
+    .card-header
+      = fa_icon "file-o", class: 'mr-2'
+      | General Information
+    .card-body
+<%- attributes.each do |attribute| -%>
+        = f.<%= attribute.reference? ? :association : :input %> :<%= attribute.name %>
+<%- end -%>
+
+    .card-footer
+      = f.button :submit, class: 'btn btn-primary btn-sm'
+      = link_to 'Cancel', @<%= singular_table_name %>, class: 'btn btn-link btn-sm'

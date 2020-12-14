@@ -1,0 +1,14 @@
+#globalModal.modal.fade aria-hidden="true" aria-labelledby="globalModalLabel" role="dialog" tabindex="-1"
+  .modal-dialog.modal-lg role="document"
+    .modal-content
+      .modal-header
+        h3#globalModalLabel.modal-title Modal title
+        button.close aria-label="Close" data-dismiss="modal" type="button"
+          span aria-hidden="true" &times;
+      .modal-body
+        - if content_for(:global_modal)
+          = yield(:global_modal)
+        - else
+          p
+      .modal-footer
+        button.btn.btn-secondary data-dismiss="modal" type="button"  Close

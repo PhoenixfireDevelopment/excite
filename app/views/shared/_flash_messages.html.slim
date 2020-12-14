@@ -1,0 +1,8 @@
+- flash.each do |key, message|
+  - key = :danger if key == :error.to_s
+  - key = :danger if key == :alert.to_s
+  - key = :success if key == :notice.to_s
+  - next if key.to_sym == :timedout
+  div(class= "alert alert-#{key}")
+    button.close data-dismiss= "alert"  &times;
+    = message

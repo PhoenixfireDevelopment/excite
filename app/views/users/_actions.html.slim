@@ -1,0 +1,12 @@
+.btn-toolbar
+  = link_to main_app.user_path(user), title: "View #{User.model_name.human}", class: 'btn btn-secondary btn-sm mr-3' do
+    = fa_icon 'eye', class: 'fa-1x'
+
+  = mail_to user.email, title: "Email #{User.model_name.human}", class: 'btn btn-info btn-sm mr-3' do
+    = fa_icon 'envelope-o', class: 'fa-1x'
+
+  = link_to main_app.edit_user_path(user), class: 'btn btn-warning btn-sm mr-3', title: "Edit #{User.model_name.human}" do
+    = fa_icon 'pencil-square-o', class: 'fa-1x'
+
+  = link_to main_app.user_path(user), class: 'btn btn-danger btn-sm', title: "Remove #{User.model_name.human}", method: :delete, data: { confirm: 'Are you sure?' } do
+    = fa_icon 'remove', class: 'fa-1x'

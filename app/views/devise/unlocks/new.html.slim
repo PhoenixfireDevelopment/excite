@@ -1,0 +1,15 @@
+- title 'Resend Unlock Instructions', false, {fa_icon: 'key'}
+
+== render 'shared/flash_messages'
+
+= simple_form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f|
+  = f.full_error :unlock_token
+  .card
+    .card-header
+      = fa_icon 'key'
+      | Resend Unlock Instructions
+    .card-body
+      = f.input :email, required: true, autofocus: true
+      = f.button :submit, 'Resend unlock instructions', class: 'btn btn-primary btn-sm'
+    .card-footer
+      == render "devise/shared/links"
