@@ -19,3 +19,8 @@ docker-compose up
 > http://localhost:3000
 
 Login using the credentials you specify under `docker/.secrets.env`. See the `.secrets.env.example` file to substitute in your own credentials. This is set during `rake db:seed`.
+
+
+## Catch the Series on YouTube!
+
+https://www.youtube.com/watch?v=wzQLMfPZobg
