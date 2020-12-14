@@ -35,7 +35,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'redis', '~> 3.0'
 
 gem 'active_link_to'
-gem 'bootstrap', '~> 4.0.0'
+gem 'bootstrap', '>= 4.3.1'
 
 gem 'devise'
 gem 'font-awesome-rails'
