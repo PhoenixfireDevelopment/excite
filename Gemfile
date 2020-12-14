@@ -7,7 +7,7 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 # https://github.com/rails/rails/pull/31521
-gem 'rails', '~> 5.1.6'
+gem 'rails', '~> 5.2.4'
 
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.3.18', '< 0.5'
@@ -20,6 +20,11 @@ gem 'sass-rails', '~> 5.0'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
+
+# https://guides.rubyonrails.org/upgrading_ruby_on_rails.html#upgrading-from-rails-5-1-to-rails-5-2-bootsnap
+# https://github.com/rails/rails/pull/29313/files#diff-d09ea66f8227784ff4393d88a19836f321c915ae10031d16c93d67e6283ab55f
+# for railties app_generator_test
+gem 'bootsnap', '>= 1.1.0', require: false
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
