@@ -23,7 +23,7 @@ Login using the credentials you specify under `docker/.secrets.env`. See the `.s
 
 ## Catch the Series on YouTube!
 
-https://youtu.be/wzQLMfPZobg
-https://youtu.be/yR6RnJvh8vc
-https://youtu.be/59jcAhjm2mA
-https://youtu.be/FrhrrAe5kgc
+* https://youtu.be/wzQLMfPZobg
+* https://youtu.be/yR6RnJvh8vc
+* https://youtu.be/59jcAhjm2mA
+* https://youtu.be/FrhrrAe5kgc
