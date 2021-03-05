@@ -12,7 +12,6 @@ services:
     volumes:
       - ../:/app/src
       - ~/.ssh:/root/.ssh
-      - excite_bundle_cache:/bundle
     depends_on:
       - excite_db
     entrypoint: ["/app/src/entrypoint.sh"]
@@ -23,7 +22,7 @@ services:
   excite_db:
     image: mariadb
     volumes:
-      - excite_volume:/var/lib/mysql
+      - excite_db_volume:/var/lib/mysql
     env_file:
       - .secrets.env
     ports:
@@ -31,4 +30,4 @@ services:
 
 volumes:
   excite_bundle_cache:
-  excite_volume:
+  excite_db_volume:

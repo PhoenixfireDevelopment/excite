@@ -12,7 +12,7 @@ ENV APP_HOME /app/src
 WORKDIR $APP_HOME
 
 ADD Gemfile /app/src/Gemfile
-# ADD Gemfile.lock /app/src/Gemfile.lock
+ADD Gemfile.lock /app/src/Gemfile.lock
 
 ENV BUNDLE_GEMFILE=$APP_HOME/Gemfile \
   BUNDLE_JOBS=2 \

@@ -44,7 +44,12 @@ module Excite
       g.fixture_replacement :factory_bot, dir: 'spec/factories'
       g.template_engine :slim
       g.stylesheet_engine :scss
-      g.assets false
+
+      # g.assets false
+      g.stylesheets false
+      g.javascripts true
+
+
       g.helper false
       g.request_specs false
     end

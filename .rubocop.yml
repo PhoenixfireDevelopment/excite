@@ -1,4 +1,9 @@
-inherit_from: .rubocop_todo.yml
 AllCops:
   Exclude:
     - db/schema.rb
+    - db/migrate/*
+    - 'spec/**/*'
+    - 'test/**/*'
+    - lib/templates/**/*
+    - lib/generators/**/*
+inherit_from: .rubocop_todo.yml

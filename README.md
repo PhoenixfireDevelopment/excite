@@ -1,5 +1,10 @@
 # README
 
+```
+cd docker/
+cp .secrets.env.example .secrets.env
+```
+
 ## Build the Docker Image
 
 ```

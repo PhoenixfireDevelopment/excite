@@ -8,7 +8,6 @@ class <%= controller_class_name %>Controller < ApplicationController
   # GET <%= route_url %>
   # GET <%= route_url %>.json
   def index
-    # TODO: change this to ordered
     @<%= plural_table_name %> = <%= class_name %>.ordered
     @<%= plural_table_name %> = @<%= plural_table_name %>.search(params[:sSearch]) if params.try(:[], :sSearch).present?
     @<%= plural_table_name %> = @<%= plural_table_name %>.page(page).per(per_page)
