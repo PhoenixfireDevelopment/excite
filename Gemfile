@@ -39,6 +39,10 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 gem 'redis', '~> 3.0'
 
+
+# Dependabot recommendations
+gem 'nokogiri', '>= 1.11.0'
+
 gem 'active_link_to'
 gem 'bootstrap', '>= 4.3.1'
 

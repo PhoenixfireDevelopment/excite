@@ -9,7 +9,7 @@ cp .secrets.env.example .secrets.env
 
 ```
 cd docker
-docker-compose build --force-rm excite
+docker-compose build excite
 ```
 
 ## Start Docker Compose
